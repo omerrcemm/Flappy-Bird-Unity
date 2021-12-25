@@ -88,6 +88,17 @@ public class GameManager : MonoBehaviour {
 			// Start the gameover animations
 			GameManager.Instance.StartCoroutine("GameOver");
 			SoundManager.Instance.PlayTheAudio("Hit");
+
+			SoundManager.Instance._failCount++;
+            if (SoundManager.Instance._failCount==5)
+            {
+				ADSManager.instance.ShowADS();
+				SoundManager.Instance._failCount = 0;
+
+			}
+
+
+
 		}
 	}
 
@@ -134,7 +145,10 @@ public class GameManager : MonoBehaviour {
 		foreach(GameObject endButton in endButtons){
 			endButton.SetActive(true);
 		}
-	
+
+		Debug.Log("Game Over");
+
+
 	}
 
 	public void Replay(){

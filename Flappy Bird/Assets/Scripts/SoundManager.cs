@@ -8,6 +8,8 @@ public class SoundManager : MonoBehaviour {
 
 	[SerializeField] private AudioSource point, swoosh, flap, hit;
 	private AudioSource playAudio;
+
+	public int _failCount;
 	
 	void Awake(){
 		Instance = this;
